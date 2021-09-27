@@ -1,0 +1,16 @@
+<p>Date:{{specialOccasion.date}} </p>
+<p>Note:{{specialOccasion.notes}}</p>
+
+<p>GiftList:
+      <ul>
+ {{#each specialOccasion.giftList}}
+
+ <li>{{this}}</li>
+  
+
+{{/each}}
+</ul>
+</p>
+
+<button type="submit"><a href="/specialOccasion">Save</a></button>
+
