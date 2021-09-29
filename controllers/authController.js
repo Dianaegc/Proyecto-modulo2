@@ -2,15 +2,17 @@ const bcryptjs = require("bcryptjs");
 const saltRounds = 10;
 
 const User = require("./../models/User.model");
-
-exports.loginUser = async (req, res) => {
+exports.loginUser=async(req,res)=>{
+  res.render("auth/login")
+}
+exports.loginUserForm = async (req, res) => {
   // 1. OBTENER LAS DATOS DEL FORMULARIO
   const { username, password } = req.body;
 
   // 2. REALIZAR UNA VALIDACIÓN DE QUE NO HAYA DATOS VACÍOS
   if (username === "" || password === "") {
     return res.render("index", {
-      errorMessage: "Tienes campos vacíos. Debes llenarlos.",
+      errorMessage: "You have empty fields.You must fill them out.",
     });
   }
 
@@ -23,7 +25,7 @@ exports.loginUser = async (req, res) => {
     if (!foundUser) {
       return res.render("index", {
         errorMessage:
-          "El usuario o la contraseña son erróneas. Intenta nuevamente",
+          "Incorrect username, please try again",
       });
     }
 
@@ -37,7 +39,7 @@ exports.loginUser = async (req, res) => {
     if (isItMatched === false) {
       return res.render("index", {
         errorMessage:
-          "El usuario o la contraseña son erróneas. Intenta nuevamente",
+          "Username or password incorrect.Please try again.",
       });
     }
 
@@ -84,3 +86,4 @@ exports.createUserForm = async (req, res) => {
 
   res.redirect("/profile/home");
 };
+

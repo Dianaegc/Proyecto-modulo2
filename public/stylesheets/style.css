@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+background-image: url(../images/leone-venter-mTkXSSScrzw-unsplash.jpg);
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -9,4 +9,8 @@ a {
 
 h1 {
   color: 15px;
+}
+
+#user{
+  width: 20px
 }

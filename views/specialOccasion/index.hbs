@@ -1,19 +1,48 @@
-<form action="/specialOccasion" method="POST">
-    <h2>Date:</h2>
-    <input type="number" name="date" placeholder="date">
-    <h2>Notes:</h2>
-    <input type="text" name="notes" placeholder="notes"/>
+<h2>Create Event</h2>
 
+<div>
+<form action="/specialOccasion/create" method="POST" class="row gy-3 gx-2 align-items-end">
+<div class="col-auto">
+      <label for="text" class="form-label">Event:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        placeholder="Birthday"
+      />
+    </div>
+    <div>
+<label for="date">Date:</label>
+    <input type="date" id="date" name="date">
+</div>
+<div class="col-auto">
+      <label for="text" class="form-label">Notes:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="notes"
+        placeholder="Remember to..."
+      />
+    </div>
 <h2>Giftlist</h2>
-<ul>
-<li>1.<input type="text" name="giftList" placeholder="giftList"/> </li>
-<li>2.<input type="text" name="giftList" placeholder="giftList"/> </li>
-<li>3.<input type="text" name="giftList" placeholder="giftList"/> </li>
-<li>4.<input type="text" name="giftList" placeholder="giftList"/> </li>
-<li>5.<input type="text" name="giftList" placeholder="giftList"/> </li>
+<div>
+ 
+<ol>
+<li><input type="text" name="giftList" placeholder="wallet"/> </li>
+<li><input type="text" name="giftList" placeholder="Coffe mugs"/> </li>
+<li><input type="text" name="giftList" placeholder="blue purse"/> </li>
+<li><input type="text" name="giftList" placeholder="shoes"/> </li>
+<li><input type="text" name="giftList" placeholder="chocolates"/> </li>
+</ol>
 
+<input type="submit" name="edit" value="Edit" /> 
+<input type="submit" name="save" value="Save" />
 
-</ul>
-<button type="submit"> Submit</button>
 </form>
+
+</div>
+
+
+
+
 

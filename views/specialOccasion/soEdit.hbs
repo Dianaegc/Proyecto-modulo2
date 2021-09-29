@@ -1,16 +1,40 @@
-<p>Date:{{specialOccasion.date}} </p>
-<p>Note:{{specialOccasion.notes}}</p>
+<div>
+<form action="/specialOccasion/edit/{{specialOccasion._id}}" method="POST" class="row gy-3 gx-2 align-items-end">
+<div class="col-auto">
+      <label for="name" class="form-label">Event:</label>
+      <input
+        type="text name "
+        class="form-control"
+        name="name"
+        value="{{specialOccasion.notes}}"
+      />
+    </div>
+    <div>
+<label for="date">Date:</label>
+    <input type="date" id="date" name="date" value="{{specialOccasion.date}}">
+</div>
+<div class="col-auto">
+      <label for="text" class="form-label">Notes:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="notes"
+        value="{{specialOccasion.notes}}"
+      />
+    </div>
+<div>
+      <p> <b>GiftList:</b>  </p>
+      <ol>
+            {{#each specialOccasion.giftList}}
+            <input  type="text" value="{{this}}" />
+            {{/each}}
+      </ol>
+   <div class="col-auto">
+    <button type="submit" class="btn btn-primary">Save</button>
+  </div>
+</form>
 
-<p>GiftList:
-      <ul>
- {{#each specialOccasion.giftList}}
 
- <li>{{this}}</li>
-  
 
-{{/each}}
-</ul>
-</p>
 
-<button type="submit"><a href="/specialOccasion">Save</a></button>
 

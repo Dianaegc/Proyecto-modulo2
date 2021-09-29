@@ -2,7 +2,10 @@ const mongoose          = require("mongoose")
 
 //Schema
 const specialOccasionSchema = mongoose.Schema({
-    date:Number,
+    name:String,
+    date:{
+        type:Date,
+    },
     notes:String,
    giftList:[{
        type:String
