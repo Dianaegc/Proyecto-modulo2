@@ -15,8 +15,8 @@ const specialOccasionSchema = mongoose.Schema({
 
 
 // MODELO
-const specialOccasion= mongoose.model("specialOccasion", specialOccasionSchema)
+const SpecialOccasion= mongoose.model("SpecialOccasion", specialOccasionSchema)
 
 
 // EXPORTACIÓN
-module.exports =specialOccasion
+module.exports =SpecialOccasion

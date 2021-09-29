@@ -1,9 +1,6 @@
 
 
-<h2>Groups</h2>
-
-
-
+<h2>Contacts</h2>
 
 
 <ol class="list-group list-group-numbered">
@@ -11,11 +8,11 @@
   <li class="list-group-item d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">
       <div class="fw-bold">{{this.name}}</div>
-{{#each this.specialOccasion }}
-{{this.name}}
+  
+{{#each this.specialOccasions}}
+<p> {{this}} </p>
 {{/each}}
     </div>
-    <span class="badge bg-primary rounded-pill">{{this.specialOccasion.length}}</span>
   </li>
   
   {{/each}}

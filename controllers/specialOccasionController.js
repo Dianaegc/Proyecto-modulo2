@@ -7,7 +7,7 @@ exports.specialOccasion = async (req, res) => {
   return res.render("specialOccasion/index",{contactId});//?
 };
 exports.createspecialOccasion = async (req, res) => {
-  const { name,date, notes, giftList} = req.body;
+  const { name,date, notes, giftList,contactId } = req.body;
   console.log(req.body.edit)
   console.log(req.body.save)
   const newSpecialOccasion =  await SpecialOccasion.create({
@@ -18,8 +18,8 @@ exports.createspecialOccasion = async (req, res) => {
   //let n= d.toString()
 
  // como pasar el id del contacto aca.
-  
-  console.log(newSpecialOccasion);
+  const contact =await Contact.findByIdAndUpdate(contactId,{$push:{specialOccasions:newSpecialOccasion._id}}) // para ligar los special occasions al contacto
+  console.log(contact);
   if(req.body.edit){ // si pican boton de edit , mande a tal pagina
     res.redirect(`/specialOccasion/edit/${newSpecialOccasion._id}`);
   }else{ // si pican boton de save , mande a tal pagina
@@ -44,10 +44,13 @@ exports.editSpecialOccasionForm = async (req, res) => {
   const soId = req.params.specialOccasionId;
   const { name,date,notes,giftList} = req.body;
   const specialOccasion = await SpecialOccasion.findByIdAndUpdate(soId,{name,date,notes,giftList});
-
-
-
   console.log(specialOccasion);
   return res.redirect("/profile/home");
+}
 
+exports.deleteSpecialOccasion=async (req, res) => {
+  const {soId}=req.params
+  await SpecialOccasion.findByIdAndDelete(soId)
+  console.log("Special Occasion delete")
+  res.redirect("/profile/home")
 }
