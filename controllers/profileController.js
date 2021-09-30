@@ -1,4 +1,4 @@
-const Contact = require("./../models/Contact")
+const Contact = require("../models/Contact")
 //const User = require("./../models/User.model")
 exports.home = async (req, res) => {
 

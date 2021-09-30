@@ -1,5 +1,5 @@
-const Contact = require("./../models/Contact");
-const User = require("./../models/User.model");
+const Contact = require("../models/Contact");
+const User = require("../models/User.model");
 
 exports.createContact =async(req,res) => {
     res.render("contact/createContact")

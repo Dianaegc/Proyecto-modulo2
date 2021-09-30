@@ -1,5 +1,5 @@
-const SpecialOccasion = require("./../models/SpecialOccasion");
-const Contact = require("./../models/Contact");
+const SpecialOccasion = require("../models/SpecialOccasion");
+const Contact = require("../models/Contact");
 
 
 exports.specialOccasion = async (req, res) => {

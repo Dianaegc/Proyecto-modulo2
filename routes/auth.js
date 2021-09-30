@@ -1,7 +1,7 @@
 const express           = require("express")
 const router            = express.Router()
-const authController    = require("./../controllers/authController")
-const routeGuards        = require("./../middlewares/route-guard")
+const authController    = require("../controllers/authController")
+const routeGuards        = require("../middlewares/route-guard")
 
 
 //GET-MOSTRAR FORMULARIO PARA CREACION
