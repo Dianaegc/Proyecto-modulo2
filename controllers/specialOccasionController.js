@@ -49,8 +49,9 @@ exports.editSpecialOccasionForm = async (req, res) => {
 }
 
 exports.deleteSpecialOccasion=async (req, res) => {
-  const {soId}=req.params
-  await SpecialOccasion.findByIdAndDelete(soId)
-  console.log("Special Occasion delete")
+  const {specialOccasionId} = req.params
+  await SpecialOccasion.findByIdAndDelete(specialOccasionId)
+  console.log("SpecialOccasion delete")
   res.redirect("/profile/home")
 }
+

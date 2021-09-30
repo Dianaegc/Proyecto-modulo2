@@ -6,6 +6,7 @@ exports.loginUser=async(req,res)=>{
   res.render("auth/login")
 }
 exports.loginUserForm = async (req, res) => {
+  console.log('SESSION =====> ', req.session);
   // 1. OBTENER LAS DATOS DEL FORMULARIO
   const { username, password } = req.body;
 
@@ -45,15 +46,25 @@ exports.loginUserForm = async (req, res) => {
 
     // 5. SI LA CONTRASEÑA COINCIDE, ENTONCES... CREAR UNA SESIÓN Y RETORNAR PÁGINA DE ÉXITO
 
-    // console.log(req)
-    //req.session.currentUser = foundUser;
-
+    
+    req.session.currentUser = foundUser;
+    console.log(req.session)
     return res.redirect("/profile/home");
   } catch (error) {
     // 6. EN CASO DE FALLOS, REALIZAMOS MANEJO DE ERRORES (ERROR HANDLING)
     console.log(error);
   }
 };
+
+exports.logoutUser=(req,res) => {
+  req.session.destroy((err)=>{
+    if(err){
+      console.log(err)
+    }
+    res.redirect("/")
+  });
+}
+
 exports.signUpUser = async (req, res) => {
   console.log("[signUpUser]");
   res.render("auth/signup");
@@ -63,9 +74,6 @@ exports.createUserForm = async (req, res) => {
   const { username, email, password } = req.body;
 
   // 2. ENCRIPTACIÓN DE LA VARIABLE PASSWORD
-
-  // ESTE ES LA BASE DE LA ENCRIPTACION
-  // $2a$10$H9jg8k0zOgo8346atEKSwu
   const salt = await bcryptjs.genSalt(saltRounds);
 
   // MEZCLA DEL PASSWORD CON NUESTRA SALT
