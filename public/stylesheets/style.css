@@ -15,6 +15,14 @@ h1 {
 
 }
 
+
+#signup{
+  background-image: url("../images/bolsas.png");
+  background-size:cover ;
+  height:100vh;
+  width: 100vw;
+
+}
 #home{
   background-image: url("../images/bolsas.png");
   background-size:cover ;
@@ -22,12 +30,33 @@ h1 {
   width: 100vw;
 }
 
+#profile{
+background-image:url("../images/Friends.jpeg");
+background-size:cover ;
+  height:100vh;
+  width: 100vw;
 
+
+}
 
 #edit{
-  background-image: url("../images/Bolsa\ negra.png");
+  background-image: url("../images/Diseño\ sin\ título.png");
   background-size: cover;
   height:100vh;
   width: 100vw;
   
+}
+
+#editSO{
+  background-image: url("../images/Diseño\ sin\ título.png");
+  background-size: cover;
+  height:100vh;
+  width: 100vw;
+}
+
+#create-event{
+  background-image: url("../images/Diseño\ sin\ título.png");
+  background-size: cover;
+  height:100vh;
+  width: 100vw;
 }

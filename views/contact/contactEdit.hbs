@@ -1,55 +1,77 @@
-<div id ="edit">
+<div id="edit">
+  <br>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Edit Contact</h2>
 
-<div >
+        <form action="/contact/edit/{{contact._id}}" method="POST">
+          <div>
+            <label for="name" class="form-label">Name</label>
+            <input id="name" class="form-control" type="text" name="name" value="{{contact.name}}" />
+          </div>
 
 
-  <h2>Edit Contact</h2>
+          <br>
+          <br>
+          <div class="">
+            <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+            <select class="form-select" id="autoSizingSelect" name="category">
+              <option selected>{{contact.category}}</option>
+              <option value="Family">Family</option>
+              <option value="Friends">Friends</option>
+              <option value="Pets">Pets</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <br>
+          <br>
+          <div class="row">
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+            <div class="col-auto">
+              <a href="/specialOccasion/create/{{contact._id}}" class="btn btn-primary">New Occasion</a>
+            </div>
 
-  <form  class="row g-3"action="/contact/edit/{{contact._id}}" method="POST">
-   <div class="col-md-1">
-  <label for="name" class="form-label">Name</label>
-    <input id="name"  class="form-control" type="text" name="name" value="{{contact.name}}"/>
+          </div>
+
+
+
+
+        </form>
+
+      </div>
+      <div class="col">
+          
+        {{#each contact.specialOccasions}}
+        <a href="/specialOccasion/edit/{{this._id}}" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="row">
+          <div class="col">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><b>Event: </b>{{this.name}}</li>
+              <li class="list-group-item"><b>Date: </b>{{this.date}}</li>
+              <li class="list-group-item"><b>Notes: </b>{{this.notes}}</li>
+            </ul>
+          </div>
+          <div class="col">
+            <b>GiftList Options: </b>
+            <ul class="list-group">
+              {{#each this.giftList}}
+              <li class="list-group-item">{{this}}</li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+
+        <br>
+        </a>
+        {{/each}}
+        
+      </div>
+    </div>
   </div>
-
-
-<br>
-<br>
-    <div class="row g-3 align-items-center">
-<div class="col-auto">
-    <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-    <select class="form-select" id="autoSizingSelect" name="category">
-      <option selected>{{contact.category}}</option>
-      <option value="Family">Family</option>
-       <option value="Friends">Friends</option>
-      <option value="Pets">Pets</option>
-      <option value="Other">Other</option>
-    </select>
-  </div>
-
-<div class="col-auto">
-    <button type="submit" class="btn btn-primary">Save</button>
-  </div>
-
-  
-  </form>
-
-</div>
-<br>
-<a href="/specialOccasion/create/{{contact._id}}" class="btn btn-primary">New Occasion</a>
-<br>
-<br>
-{{#each contact.specialOccasions}}
-<ul>
-<li><b>Event:</b>{{this.name}}</li>
-<li><b>Date:</b>{{this.date}}</li>
-<li><b>Notes:</b>{{this.notes}}</li>
-<li><b>GiftList Options:</b>{{this.giftList}}</li>
-
-
-<a href="/specialOccasion/edit/{{this._id}}">Edit</a>
-</ul>
-{{/each}}
-
 
 
 </div>

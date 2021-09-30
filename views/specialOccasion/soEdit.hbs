@@ -1,46 +1,50 @@
-<div>
-<form action="/specialOccasion/edit/{{specialOccasion._id}}" method="POST" class="row gy-3 gx-2 align-items-end">
-<div class="col-auto">
-      <label for="name" class="form-label">Event:</label>
-      <input
-        type="text name "
-        class="form-control"
-        name="name"
-        value="{{specialOccasion.name}}"
-      />
-    </div>
-    <div>
-<label for="date">Date:</label>
-    <input type="date" id="date" name="date" value="{{specialOccasion.date}}">
-</div>
-<div class="col-auto">
-      <label for="text" class="form-label">Notes:</label>
-      <input
-        type="text"
-        class="form-control"
-        name="notes"
-        value="{{specialOccasion.notes}}"
-      />
-    </div>
+<div id="editSO">
+  <br>
+  <br>
+  <div class="container">
+    <form action="/specialOccasion/edit/{{specialOccasion._id}}" method="POST">
+      <div class="row">
+        <div class="col">
+          <div>
+            <label for="name" class="form-label">Event:</label>
+            <input type="text name " class="form-control" name="name" value="{{specialOccasion.name}}" />
+          </div>
+          <br>
+          <div>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" value="{{specialOccasion.date}}" />
+          </div>
+          <br>
+          <div>
+            <label for="text" class="form-label">Notes:</label>
+            <input type="text" class="form-control" name="notes" value="{{specialOccasion.notes}}" />
+          </div>
+          <br>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+        <div class="col">
+          <p> <b>GiftList:</b> </p>
+          {{#each specialOccasion.giftList}}
+          <input type="text" value="{{this}}" class="form-control" name="giftList">
+          <br>
+          {{/each}}
+        </div>
+      </div>
+    </form>
     <br>
-<div>
-      <p> <b>GiftList:</b>  </p>
-      <ol>
-            {{#each specialOccasion.giftList}}
-            <input  type="text" value="{{this}}" />
-            {{/each}}
-      </ol>
-   <div class="col-auto">
-    <button type="submit" class="btn btn-primary">Save</button>
+    <br>
+    <br>
+    <div class="d-flex flex-row-reverse">
+      <div>
+        <form action="/specialOccasion/delete/{{specialOccasion._id}}" method="POST">
+          <button type="submit" class="btn btn-danger">
+            Delete
+          </button>
+        </form>
+      </div>
+    </div>
+
   </div>
-</form>
-
-
-<form action="/specialOccasion/delete/{{specialOccasion._id}}" method="POST" >
-
-    <button type="submit"class="btn btn-danger">
-        Delete
-    </button>
-</form>
-
-
+</div>
