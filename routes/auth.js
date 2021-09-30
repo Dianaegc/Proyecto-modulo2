@@ -13,7 +13,7 @@ router.post("/signup",authController.createUserForm)
 
 router.get("/login", routeGuards.isLoggedOut,authController.loginUser)
 router.post("/login", authController.loginUserForm)
-router.post("/logout",authController.logoutUser)
+router.get("/logout",authController.logoutUser)
 
 
 module.exports = router

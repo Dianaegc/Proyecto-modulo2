@@ -1,5 +1,5 @@
-const SpecialOccasion = require("./../models/SpecialOccasion");
 const Contact = require("./../models/Contact");
+const User = require("./../models/User.model");
 
 exports.createContact =async(req,res) => {
     res.render("contact/createContact")
@@ -7,7 +7,9 @@ exports.createContact =async(req,res) => {
 exports.createContactForm=async(req,res) => {
     const {name,category}=req.body
     const newContact= await Contact.create({name,category})
-    console.log(newContact)
+    const currentUserId= req.session.currentUser._id
+   const user = await User.findByIdAndUpdate(currentUserId,{$push:{contacts:newContact._id}}) //
+    console.log(user)
     res.redirect(`/profile/home`)//cuando presione el save
 }
 

@@ -1,34 +1,29 @@
 <h2>Contacts</h2>
 
-<ol class="list-group list-group-numbered">
+
+
+<div class="list-group">
   {{#each contacts}}
-    <li
-      class="list-group-item d-flex justify-content-between align-items-start"
-    >
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">{{this.name}}</div>
 
+  <a href="/contact/{{this._id}}" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{this.name}}</h5>
+      
+    </div>
         {{#each this.specialOccasions}}
-          <br />
-          <ul>
-            <li><b>Event:</b>{{this.name}}</li>
-            <li><b>Date:</b>{{this.date}}</li>
-          </ul>
-          <form action="/specialOccasion/delete/{{this._id}}" method="POST">
-            <div class="col-auto">
-              <button class="btn btn-primary">Delete Event </button>
-            </div>
-          </form>
-
+        <div class="d-flex w-100 justify-content-between">
+          <p class="mb-1"><b>Event: </b>{{this.name}}</p>
+          <small class="text-muted">{{this.date}}</small>
+        </div>
+            
         {{/each}}
-                   <form action="/contact/delete/{{this._id}}" method="POST">
-            <div class="col-auto">
-              <button class="btn btn-primary">Delete Contact</button>
+    
+ 
+    <form action="/contact/delete/{{this._id}}" method="POST">
+            <div class="d-flex flex-row-reverse">
+              <button class="btn bg-danger text-white">Delete Contact</button>
             </div>
           </form>
-        <a href="/contact/{{this._id}}">Contact Info</a>
-      </div>
-    </li>
-
+  </a>
   {{/each}}
-</ol>
+</div>

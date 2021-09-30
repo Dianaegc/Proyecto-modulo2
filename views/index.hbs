@@ -1,7 +1,9 @@
-<div>
 
-  <h2>Log In</h2>
-  <form
+
+<div class="jumbotron ml-5">
+  <h1 class="display-4">Livent's</h1>
+  <p class="lead">Este es Livent's esta esla descripcion que la Giga va a escribir.</p>
+   <form
     action="/auth/login"
     method="POST"
     class="row gy-3 gx-2 align-items-end"
@@ -28,14 +30,12 @@
     <div class="col-1 align-bottom">
       <button type="submit" class="btn btn-primary">Log In</button>
     </div>
+    <div class="col-1 align-bottom">
+      <a class="btn btn-primary" href="/auth/signup" role="button">Sign Up</a>
+    </div>
 
     {{#if errorMessage}}
       <p style="color: red">{{errorMessage}}</p>
     {{/if}}
   </form>
-
-  <br />
-  <a href="auth/signup">
-    <button type="submit" class="btn btn-primary">Sign Up</button>
-  </a>
 </div>
