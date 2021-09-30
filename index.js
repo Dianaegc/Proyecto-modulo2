@@ -44,5 +44,9 @@ app.use("/contact",require("./routes/contact"))
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
-
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server listening on port http://localhost:${PORT}`);
+  });
+  
 module.exports = app;
