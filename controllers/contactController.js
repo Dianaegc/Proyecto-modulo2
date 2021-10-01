@@ -8,9 +8,8 @@ exports.createContactForm=async(req,res) => {
     const userId= req.session.currentUser._id
     const {name,category}=req.body
     const newContact= await Contact.create({name,category,user:userId})
-    //const currentUserId= req.session.currentUser._id
-   const user = await User.findByIdAndUpdate({_id:userId},{$push:{contacts:newContact._id}}) //
-    console.log(user)
+  // const user = await User.findByIdAndUpdate({_id:userId},{$push:{contacts:newContact._id}}) //
+    //console.log(user)
     res.redirect(`/profile/home`)//cuando presione el save
 }
 

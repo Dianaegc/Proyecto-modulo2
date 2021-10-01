@@ -1,10 +1,8 @@
-
 const Contact = require("../models/Contact")
-//const User = require("./../models/User.model")
 exports.home = async (req, res) => {
-  const _id = req.session.currentUser._id
+  const _id = req.session.currentUser._id // guardado el id del usuario que esta loggeado
   console.log("_id", _id)
-const contacts = await Contact.find({})// me trae todos mis contactos
+const contacts = await Contact.find({user: _id})// me trae todos los contactos donde el id del usuario sea este
 .populate("specialOccasions")
 .populate("user")
   //console.log(contacts)
