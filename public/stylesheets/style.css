@@ -10,53 +10,70 @@ h1 {
   color: 15px;
 }
 
-#user{
-  width: 20px
-
+#user {
+  width: 20px;
 }
 
-
-#signup{
+#signup {
   background-image: url("../images/bolsas.png");
-  background-size:cover ;
-  height:100vh;
+  background-size: cover;
+  height: 100vh;
   width: 100vw;
-
 }
-#home{
+#home {
   background-image: url("../images/bolsas.png");
-  background-size:cover ;
-  height:100vh;
+  background-size: cover;
+  height: 100vh;
   width: 100vw;
 }
 
-#profile{
-background-image:url("../images/Friends.jpeg");
-background-size:cover ;
-  height:100vh;
+#profile {
+  background-image: url("../images/Friends.jpeg");
+  background-size: cover;
+  height: 100vh;
   width: 100vw;
-
-
 }
 
-#edit{
+#edit {
   background-image: url("../images/Diseño\ sin\ título.png");
   background-size: cover;
-  height:100vh;
-  width: 100vw;
-  
-}
-
-#editSO{
-  background-image: url("../images/Diseño\ sin\ título.png");
-  background-size: cover;
-  height:100vh;
+  height: 100vh;
   width: 100vw;
 }
 
-#create-event{
+#editSO {
   background-image: url("../images/Diseño\ sin\ título.png");
   background-size: cover;
-  height:100vh;
+  height: 100vh;
   width: 100vw;
+}
+
+#create-event {
+  background-image: url("../images/Diseño\ sin\ título.png");
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+.nav-bar {
+  background-color: rgb(245, 245, 245);
+  padding: 10px 0;
+}
+.nav-login {
+  display: flex;
+  text-align: left;
+  margin: 0;
+  position: relative;
+  justify-content: left;
+}
+.nav-bar-ul {
+  width: 100vw;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+}
+.nav-bar a {
+  font-size: 1.4em;
+  text-decoration: none;
+  color: rgb(77, 53, 4);
 }

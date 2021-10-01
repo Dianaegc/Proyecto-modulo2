@@ -3,15 +3,18 @@ const Contact = require("../models/Contact");
 
 
 exports.specialOccasion = async (req, res) => {
+  
   const contactId = req.params.contactId;
   return res.render("specialOccasion/index",{contactId});//?
 };
 exports.createspecialOccasion = async (req, res) => {
+  const userId = req.session.currentUser._id;
+    console.log("userId", userId);
   const { name,date, notes, giftList,contactId } = req.body;
   console.log(req.body.edit)
   console.log(req.body.save)
   const newSpecialOccasion =  await SpecialOccasion.create({
-    name,date,notes,giftList
+    name,date,notes,giftList,user:userId
   });
   //para cambiar mi date a una string 
   //let d= new Date() 
@@ -21,8 +24,10 @@ exports.createspecialOccasion = async (req, res) => {
   const contact =await Contact.findByIdAndUpdate(contactId,{$push:{specialOccasions:newSpecialOccasion._id}}) // para ligar los special occasions al contacto
   console.log(contact);
   if(req.body.edit){ // si pican boton de edit , mande a tal pagina
+    return 
     res.redirect(`/specialOccasion/edit/${newSpecialOccasion._id}`);
   }else{ // si pican boton de save , mande a tal pagina
+
     res.redirect('/profile/home');
   }
   

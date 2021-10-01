@@ -8,7 +8,12 @@ const contactSchema=  mongoose.Schema({
     specialOccasions:[{
         type: mongoose.Schema.Types.ObjectId,
         ref:"SpecialOccasion"
-    }]
+    }],
+    user:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User"
+       }
+
       
 })
 
